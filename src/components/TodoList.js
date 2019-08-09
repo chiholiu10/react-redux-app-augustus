@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toggleTodo, deleteTodo } from '../actions/app';
 
-const TodoList = ({ todo, toggleTodo }) => {
+const TodoList = ({ todo, toggleTodo, deleteTodo }) => {
 
     let newTodo = todo.map((item, index) => {
         return (
             <div key={index}>
-                <div style={{ textDecoration: item.completed ? 'line-through': 'none'}} onClick={() => toggleTodo(item.id)}> {item.text}</div>
-                <button onClick={() => deleteTodo(item.id)}>X</button>
+                <div style={{ textDecoration: item.completed ? 'line-through': 'none'}} onClick={() => toggleTodo(item.id)}>{item.text}</div>
+                <div onClick={() => deleteTodo(item.id)}>X</div>
             </div>
         )
     }); 
